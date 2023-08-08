@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cadastro de Endereço</title>
+        <!-- Importações de scripts JS, bibliotecas externas, arquivos CSS... -->
+        <script src="./js/endereco.detalhe.js"></script>
+        <link rel="stylesheet" href="../../css/estilos.css">
+    </head>
+    <body>
+        <header>
+            <h1>Cadastro de Endereço</h1>
+            <p name="paragrafo-destacado">Informe os dados do seu endereço</p>
+            <p></p>
+        </header>
+        <main>
+            <section>
+                <aside>
+                    <p><a href="/index.html">Voltar ao início</a></p>
+                </aside>
+            </section>
+    
+            <section>
+                <form id="formulario" class="formulario">
+                    <h1>Cadastro de Despesas</h1>
+                    <div>
+                        <fieldset id="fieldset-consulta-cep">
+                            <legend>Consulta de CEP</legend>
+                            <div>
+                                <label for="cep">Informe o CEP: </label>
+                                <!-- 
+                                    CEPs válidos
+                                    88495-000
+                                    88495000
+                                 -->
+                                <input type="text" id="cep" name="cep"/>
+                                <button type="button" onclick="buscarCEP()">Buscar CEP</button>    
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Endereço:</legend>
+                            <div>
+                                <label for="rua">Rua: </label>
+                                <input type="text" id="rua" name="rua" minlength="3" required/>    
+                            </div>
+
+                            <div>
+                                <label for="bairro">Bairro:</label>
+                                <input type="text" id="bairro" name="bairro" required/>    
+                            </div>
+        
+                            <div>
+                                <label for="cidade">Cidade:</label>
+                                <input type="text" id="cidade" name="cidade" required/>    
+                            </div>
+
+                            <div>
+                                <label for="estado">Estado:</label>
+                                <input type="text" id="estado" name="estado" required/>    
+                            </div>
+
+                            <div>
+                                <label for="estado">Número:</label>
+                                <input type="number" id="numero" name="numero" required/>    
+                            </div>
+                    
+                            <input id="botao" type="submit" value="Cadastrar" onclick="salvarEndereco()"/>  
+                        </fieldset>
+                    </div>
+                </form> 
+            </section>
+        </main>
+        <footer>
+            <p>Desenvolvido por Gabbie S2</p>
+        </footer>
+    </body>
+</html>

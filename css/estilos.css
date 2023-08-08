@@ -1,0 +1,47 @@
+/* Seletor wildcard (vale para todos) */
+*{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body{
+    background-color: lightpink;
+    text-align: center;
+}
+
+/* Seletor por elementos encadeados */
+section+h1{
+    background-color: blue;
+}
+
+/* Seletor por classe */
+.formulario {
+    background-color: pink;
+}
+
+/* Seletor por id */
+#cep{
+    background-color: lavenderblush ;
+}
+
+[name]{
+    background-color: lavenderblush ;    
+}
+
+/* Seletor por elemento (tag) */
+h1{
+    background-color: palevioletred;
+    color: whitesmoke;
+}
+
+input[type = "text"]{
+    background-color: lavenderblush ;
+}
+
+button{
+    background-color: hotpink;
+    border-color: mediumvioletred;
+}
+input{
+    background-color: hotpink;
+    border-color: mediumvioletred ;
+}

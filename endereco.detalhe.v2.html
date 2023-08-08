@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cadastro de Endereço</title>
+
+        <!-- Importações de scripts JS, bibliotecas externas, arquivos CSS... -->
+
+        <script src="./js/endereco.detalhe.js"></script>
+        <link rel="stylesheet" href="../../css/estilos.css">
+    </head>
+    <body>
+        <header class="cabecalho">
+            <h1 class="cabecalho__titulo">Cadastro de Endereço</h1>
+            <p class="cabecalho__texto">Informe os dados do seu endereço</p>
+        </header>
+        <main class="principal">
+            <section class="section__menu">
+                <aside class="section__menu__aside">
+                    <p class="section__menu__aside__titulo"><a href="/index.html">Voltar ao início</a></p>
+                </aside>
+            </section>
+    
+            <section class="section__principal">
+                <h2>Cadastro de Despesas</h2>
+                <form class="formulario" data-formulario>
+                    <div>
+                        <fieldset class="formulario__fieldset">
+                            <label class="formulario__texto" for="cep">Informe o CEP: </label>
+                            <input class="formulario__fieldset__input__valor" type="text" id="cep" name="cep" minlength="8" required/>
+                            <button type="button" onclick="buscarCEP()">Buscar CEP</button>    
+                        </fieldset>
+                    </div>
+                    <div>
+                        <fieldset class="formulario__fieldset">
+                            <label class="formulario__texto" for="descricao">Rua (Logradouro): </label>
+                            <input class="formulario__fieldset__input__descricao" type="text" id="rua" name="rua" minlength="3" required/>    
+                        </fieldset>
+                        <fieldset class="formulario__fieldset">
+                            <label class="formulario__texto" for="valor">Bairro: </label>
+                            <input class="formulario__fieldset__input__valor" type="text" id="bairro" name="bairro" required/>    
+                        </fieldset>
+                    </div>
+        
+                    <div>
+                        <fieldset class="formulario__fieldset">
+                            <label class="formulario__texto" for="valor">Cidade: </label>
+                            <input class="formulario__fieldset__input__valor" type="text" id="cidade" name="cidade" required/>    
+                        </fieldset>
+                        <fieldset class="formulario__fieldset">
+                            <label class="formulario__texto" for="valor">Estado (UF): </label>
+                            <input class="formulario__fieldset__input__valor" type="text" id="estado" name="estado" required/>    
+                        </fieldset>
+                    </div>
+                    
+                    <div>
+                        <fieldset class="formulario__fieldset">
+                            <input class="formulario__fieldset__botao" id="botao" type="submit" value="Cadastrar"/>  
+                        </fieldset>
+                    </div>
+                </form> 
+            </section>
+        </main>
+        <footer class="rodape">
+            <p class="rodape__texto">Desenvolvido por Vilmar César Pereira Júnior</p>
+        </footer>
+    </body>
+</html>
