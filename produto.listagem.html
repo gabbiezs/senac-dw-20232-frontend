@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Listagem de Produtos</title>
+        <script src="./js/produto.listagem.js"></script>
+        <link rel="stylesheet" href="../../css/estilos.css">
+    </head>
+    <body>
+        <header class="cabecalho">
+            <h1 class="cabecalho__titulo">Consulta de Produtos</h1>
+        </header>
+        <main class="principal">
+        <input
+          type="text"
+          name="produto"
+          id="produto"
+          placeholder="Produto"
+        />
+        <label for="produto">Filtrar por nome do Produto</label>
+        <input
+          type="text"
+          name="fabricante"
+          id="fabricante"
+          placeholder="Fabricante"
+        />
+        <label for="fabricante">Filtrar por Nome do Fabricante</label>
+        <input
+          type="text"
+          name="cnpj"
+          id="cnpj"
+          placeholder="CNPJ"
+        />
+        <label for="cnpj">Filtrar por CNPJ do fabricante</label>
+        <input
+          type="number"
+          name="pesomin"
+          id="pesomin"
+          placeholder="0.0Kg"
+        />
+        <label for="pesomin">Filtrar por Peso (Minimo)</label>
+        <input
+          type="number"
+          name="pesomax"
+          id="pesomax"
+          placeholder="0.0Kg"
+        />
+        <label for="pesomax">Filtrar por Peso (Maximo)</label>
+        <input
+          type="number"
+          name="valmin"
+          id="valmin"
+          placeholder="R$0.00"
+        />
+        <label for="valmin">Filtrar por Valor (min)</label>
+        <input
+          type="number"
+          name="valmax"
+          id="valmax"
+          placeholder="R$0.00"
+        />
+        <label for="valmax">Filtrar por Valor (max)</label>
+      </form> 
+      <section class="section__principal">
+        <table>
+          <thead>
+            <th>#</th>
+            <th>Nome</th>
+            <th>Fabricante</th>
+            <th>Valor (R$)</th>
+            <th>Peso (kg)</th>
+          </thead>
+          <tbody id="corpoTabela"></tbody>
+        </table>
+      </section>
+    </main>
+    <script src="./js/produto.listagem.js"></script>
+  </body>
+</html>
