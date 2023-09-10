@@ -6,9 +6,9 @@ async function buscarTodosProdutos(){
     });
 }
 
-function preencherTabela(jsonProdutos){
-    var dadosTabelaProdutos = document.getElementById('corpoTabela');
-
+function preencherTabela(jsonProdutos) {
+    var dadosTabelaProdutos = document.getElementById("corpoTabela");
+  
     for(let i = 0; i < jsonProdutos.length; i++){
         let novaLinha = dadosTabelaProdutos.insertRow();
 
@@ -27,6 +27,45 @@ function preencherTabela(jsonProdutos){
         let celulaPeso = novaLinha.insertCell();
         celulaPeso.innerText = jsonProdutos[i].peso;
     }
-}
+  }
 
-buscarTodosProdutos();
+  window.addEventListener('DOMContentLoaded', buscarProdutoSeletor());
+  
+  async function buscarProdutoSeletor() {
+    fetch("http://localhost:8080/api/produtos/filtro", {
+      method: "POST",
+      body: JSON.stringify({
+        nome: document.getElementById("produto").value,
+        fabricante: document.getElementById("fabricante").value,
+        cnpjFabricante: document.getElementById("cnpj").value,
+        valorMinimo: document.getElementById("valor-min").value,
+        valorMaximo: document.getElementById("valorMax").value,
+        pesoMinimo: document.getElementById("pesoMin").value,
+        pesoMaximo: document.getElementById("pesoMax").value,
+      }),
+      headers: {
+        "Content-Type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((resultado) => resultado.json())
+      .then((json) => {
+        console.log(json);
+        preencherTabela(json);
+      });
+  }
+  
+  function esconderFiltro() {
+    document.getElementById('meuConteudo').classList.toggle('show');
+  }
+  
+  window.onclick = (event) => {
+    if(!event.target.matches('.btn-drop')) {
+      var dropdowns = document.getElementsByClassName('dropdown-conteudo');
+      dropdowns.forEach(item => {
+        var openDropdown = dropdowns[item];
+        if(openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      });
+    }
+  }
