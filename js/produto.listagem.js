@@ -6,6 +6,33 @@ async function buscarTodosProdutos(){
     });
 }
 
+// async function cadastrarDespesa(despesa){
+//    let options = {
+ //       method: "POST",
+ //       headers: {"Content-type": "application/json"},
+ //       body: JSON.stringify({
+ //           idUsuario: despesa.idUsuario,
+ //           descricao: despesa.descricao,
+ //           valor: parseFloat(despesa.valor),
+ //           dataVencimento: new Date(despesa.dataVencimento),
+ //           dataPagamento: new Date(despesa.dataPagamento)
+ //       })
+ //   };
+ //   const despesaUsuario = await fetch('http://localhost:8080/controle-gastos/rest/despesa/cadastrar', options);
+ //   const despesaJson = await despesaUsuario.json();
+ //   //tratamento do response aqui (despesaJson)
+//}
+
+// async function excluirPorCpf(){
+//    let cpf = ""; //TODO pegar o cpf informado na tela
+
+//      let options = {}
+ //       method: "DELETE",
+ //   };
+ //   const excluirPessoa = await fetch('http://localhost:8080/api/pessoa/deletar-por-cpf/' + cpf, options);
+ //     const resultado = await excluirPessoa.json();
+//}
+
 function preencherTabela(jsonProdutos) {
     var dadosTabelaProdutos = document.getElementById("corpoTabela");
   
