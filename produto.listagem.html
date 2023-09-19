@@ -1,109 +1,88 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <title>Listagem de Produtos</title>
-        <script src="./js/produto.listagem.js"></script>
-        <link rel="stylesheet" href="../../css/estilos.css">
-  </head>
-  <body>
-    <header class="cabecalho">
-      <h1 class="cabecalho__titulo">Consulta de Produtos</h1>
-    </header>
-    <main class="principal">
-        <div class="filtros">
-          <h2 class="cabecalho__subtitulo">Tabela</h2>
-          <button onclick="esconderFiltro()" class="btn-drop btn">Filtros
-          </button>
-        </div>
-        <div id="meuConteudo" class="dropdown-conteudo">
-          <form class="form" id="form-filtro">
-            <div class="form-item">
-              <label for="produto">Filtrar por nome do produto</label>
-              <input
-                type="text"
-                name="produto"
-                id="produto"
-                placeholder="Produto"
-              />
-            </div>
-            <div class="form-item">
-              <label for="fabricante">Filtrar por nome do fabricante</label>
-              <input
-                type="text"
-                name="fabricante"
-                id="fabricante"
-                placeholder="Fabricante"
-              />
-            </div>
-            <div class="form-item">
-              <label for="cnpj">Filtrar por CNPJ do fabricante</label>
-              <input
-                type="text"
-                name="cnpj"
-                id="cnpj"
-                placeholder="CNPJ"
-              />
-            </div>
-            <div class="form-item">
-              <label for="peso-min">Filtrar por Peso (min)</label>
-              <input
-                type="number"
-                name="pesoMin"
-                id="pesoMin"
-                placeholder="0.0Kg"
-              />
-            </div>
-            <div class="form-item">
-              <label for="peso-max">Filtrar por Peso (max)</label>
-              <input
-                type="number"
-                name="pesoMax"
-                id="pesoMax"
-                placeholder="0.0Kg"
-              />
-            </div>
-            <div class="form-item">
-              <label for="valor-min">Filtrar por Valor (min) R$</label>
-              <input
-                type="number"
-                name="valor-min"
-                id="input-valor-min"
-                placeholder="R$0.00"
-              />
-            </div>
-            <div class="form-item">
-              <label for="valor-max">Filtrar por Valor (max) R$</label>
-              <input
-                type="number"
-                name="valor-max"
-                id="input-valor-max"
-                placeholder="R$0.00"
-              />
-            </div>
-            <button
-              id="btnFiltro"
-              class="btn"
-              onclick="buscarProdutoSeletor(), esconderFiltro()"
-              type="button"
-            >
-              Filtrar
-            </button>
-          </form>
-        </div>
-      </div>
-      <section class="section__principal">
-        <table>
-          <thead>
-            <th>#</th>
-            <th>Nome</th>
-            <th>Fabricante</th>
-            <th>Valor</th>
-            <th>Peso</th>
-          </thead>
-          <tbody id="corpoTabela"></tbody>
-        </table>
-      </section>
-    </main>
-    <script src="./js/produto.listagem.js"></script>
-  </body>
+    <head>
+        <title>Listagem e Cadastro de fabricantes</title>
+        <script src="/js/produto.listagem.js"></script>
+        <script src="./js/consultaviacep.js"></script>
+        <link rel="stylesheet" href="/css/estilos.css">
+    </head>
+    <body>
+        <header class="cabecalho">
+            <h1 class="cabecalho__titulo">Cadastro de Fabricante</h1>
+        </header>
+        <main class="principal">
+            <section class="section__principal">
+               <form>
+                    <div>
+                        <label class="formulario__texto" for="inputNome">Nome do Fabricante:</label>
+                        <input class="formulario__fieldset__input__descricao" type="text" id="inputNome" name="inputNome"/>    
+                    </div>
+                    <div>
+                        <label class="formulario__texto" for="inputCnpj">CNPJ:</label>
+                        <input class="formulario__fieldset__input__descricao" type="text" id="inputCnpj" name="inputCnpj"/>    
+                    </div>
+                    <div>
+                      <label class="formulario__texto" for="inputCep">CEP:</label>
+                      <input class="formulario__fieldset__input__descricao" type="text" id="inputCep" onblur="buscarCEP()"/>    
+                  </div>
+                  <div>
+                    <label class="formulario__texto"></label>
+                    <input class="formulario__fieldset__botaoCep" 
+                           id="botaoBuscar" 
+                           type="button" 
+                           value="Buscar CEP"
+                           onclick="buscarCEP()"/>  
+                </div>
+                    <div>
+                      <label class="formulario__texto" for="inputCidade">Cidade:</label>
+                      <input class="formulario__fieldset__input__descricao" type="text" id="inputCidade" disabled/>    
+                  </div>
+                    <div>
+                     <label class="formulario__texto" for="inputUf">Uf:</label>
+                     <input class="formulario__fieldset__input__descricao" type="text" id="inputUf" disabled/>    
+                  </div>
+
+                    <div>
+                        <label class="formulario__texto"></label>
+                        <input class="formulario__fieldset__botao" 
+                               id="botaoCadastrar" 
+                               type="button" 
+                               value="Cadastrar"
+                               onclick="cadastrar()"/>  
+                    </div>
+                    <div>
+                      <label class="formulario__texto"></label>
+                      <input class="formulario__fieldset__botaoBuscarTodos" 
+                             id="botaoBuscarTodos" 
+                             type="button" 
+                             value="Buscar Todos"
+                             onclick="buscarTodosFabricantes()"/>  
+                  </div>
+                  <div>
+                    <label class="formulario__texto"></label>
+                    <input class="formulario__fieldset__botaoLimpar" 
+                           id="botaoLimpar" 
+                           type="button" 
+                           value="Limpar"
+                           onclick="limparTabela()"/>  
+                </div>
+               </form> 
+            </section>
+            <section class="section__principal">
+                <table>
+                    <thead>
+                        <th>#</th>
+                        <th>Nome</th>
+                        <th>Cnpj</th>
+                        <th>Cidade</th>
+                        <th>CEP</th>
+                        <th>UF</th>
+                    </thead>
+                    <tbody id="corpoTabela">
+                      
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </body>
 </html>

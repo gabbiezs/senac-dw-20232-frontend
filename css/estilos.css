@@ -1,174 +1,220 @@
 /* Importação de fonte */
 @import url("https://fonts.googleapis.com/css2?family=Kalam&family=Lato:wght@700&display=swap");
 
+/* 
+Referências:
+https://developer.mozilla.org/pt-BR/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox
+https://www.alura.com.br/artigos/css-guia-do-flexbox
+https://desenvolvimentoparaweb.com/css/bem/
+*/
 *{
-  font-family: 'Courier New', Courier, monospace;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Definições gerais (pseudo-elementos), equivalem a constantes*/
+:root{
+    --fonte-titulo: "Lato", sans-serif;
+    --fonte-texto: "Kalam", cursive;
+    --cor-fundo: linear-gradient(to bottom, #a632e9, 50%, #6f10a7);
+    --cor-fonte: #F1F6F9;
+    --cor-menu: #394867;
+    --cor-borda: #394867;
 }
 
 body {
-  margin: 0 auto;
-  box-sizing: border-box;
-  display: grid;
-  grid-template-columns: 1fr;
-  width: 600px;
-  justify-content: center;
-  align-items: center;
-  overflow-y: scroll;
-  background-color: #ebc3e1;
+    background: var(--cor-fundo);
+    color: var(--cor-fonte);
+    font-size: 16px;
+    border: none;
 }
 
-.cabecalho {
-  display: flex;
-  margin-top: 40px;
-  margin-bottom: 40px;
-  justify-content: center;
+.cabecalho{
+    display: block;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: flex-end;
+    height: 10vh; /* Equivale a 10% da altura da tela (viewport-height)*/
 }
 
-.principal {
-  display: grid;
-  grid-template-columns: 1fr;
+.cabecalho__titulo{
+    font-family: var(--fonte-titulo);
+    font-weight: 700;
+    text-shadow: 1px 1px 1px black;
 }
 
-.cabecalho__subtitulo {
-  display: inline;
-  justify-self: center;
+.cabecalho__texto{
+    font-family: var(--fonte-texto);
+    font-weight: 400;
+    text-shadow: 1px 1px 1px black;
 }
 
-.btn {
-  text-indent: 4px;
-  font-size: 1.125rem;
-  background: #c06382;
-  color: white;
-  border: none;
-  border-radius: 2px;
-  padding: 8px 32px;
-  cursor: pointer;
+h2 {
+    font-family: var(--fonte-titulo);
+    color: white;
+    text-shadow: 1px 1px 1px black;
+    text-align: center;
+    padding-top: 30px;
 }
 
-.btn-drop {
-  align-items: center;
+.principal{
+    height: 75vh; /* Equivale a 75% da altura da tela (viewport-height)*/
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+}   
+
+.section__menu{
+    width: 10%;
+    border: 1px solid black;
+    padding: 10px;
+    margin: 5px;
 }
 
-.filtros {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.section__menu__aside{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height:68vh;
 }
 
-.form-item label {
+.section__menu__aside__titulo{
+    font-family: var(--fonte-titulo);
+    color: white;
+    text-shadow: 1px 1px 1px black;
+}
+
+a {
+    text-decoration: none;
+    color: var(--fonte-titulo);
+}
+
+.section__principal{
+    width: 100%;
+    border: 1px solid black;
+    padding: 20px 10px 10px 10px;
+    margin: 5px;
+}
+
+div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.formulario{
+    padding-top: 30px;
+}
+
+.formulario__fieldset{
+    width: 25%;
+    margin: 10px;
+    border: 1px solid orange;
+    border-radius: 10px;
+}
+
+.formulario__texto{
+    display: block;
+    font-family: var(--fonte-texto);
+    font-weight: 400;
+    width: 120px;
+    text-shadow: 1px 1px 1px black;
+}
+
+.formulario__fieldset__input{
+    border: 2px solid var(--cor-borda);
+    border-radius: 10px;
+    width: 350px;
+    height: 24px;
+    font-size: 16px;
+    padding: 4px;
+}
+
+.formulario__fieldset__input__descricao {
+    border: 2px solid var(--cor-borda);
+    border-radius: 10px;
+    width: 440px;
+    height: 24px;
+    font-size: 16px;
+    padding: 4px;
+}
+
+.formulario__fieldset__input__valor {
+    border: 2px solid var(--cor-borda);
+    border-radius: 10px;
+    width: 260px;
+    height: 24px;
+    font-size: 16px;
+    padding: 4px;
+}
+
+.formulario__fieldset__botao{
+    border: 2px solid var(--cor-borda);
+    border-radius: 0px;
+    width: 450px;
+    height: 36px;
+    font-size: 16px;
+    display: block;
+    margin: 16px auto;
+    font-family: var(--fonte-texto);
+    font-weight: 400;
+    
+}
+
+.formulario__fieldset__botaoCep{
+  border: 2px solid var(--cor-borda);
+  border-radius: 0px;
+  width: 450px;
+  height: 36px;
+  font-size: 16px;
   display: block;
-  margin-bottom: 8px;
+  margin: 16px auto;
+  font-family: var(--fonte-texto);
   font-weight: 400;
+  
 }
 
-.form-item input {
-  height: 2rem;
-  width: 100%;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin-bottom: 20px;
-  text-indent: 4px;
-  position: relative;
-}
-
-.form-item input[type="date"]{
-  color: #757575;
-}
-
-.dropdown-conteudo {
-  display: none;
-  position: absolute;
-  width: 600px;
-  background-color: white;
-  padding: 20px;
-  margin-bottom: 20px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-  border-radius: 4px;
-  margin-top: 4px;
-}
-
-.show {
+.formulario__fieldset__botaoBuscarTodos{
+  border: 2px solid var(--cor-borda);
+  border-radius: 0px;
+  width: 450px;
+  height: 36px;
+  font-size: 16px;
   display: block;
+  margin: 16px auto;
+  font-family: var(--fonte-texto);
+  font-weight: 400;
+  
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-th {
-  border: 1px solid white;
-  text-align: start;
-  text-indent: 4px;
-  font-size: 1.125rem;
-  background: #c06382;
-  color: white;
-  padding: 8px;
-}
-
-td {
-  border: 1px solid white;
-  font-size: 1.1rem;
-  padding: 8px;
-}
-
-th:nth-child(1) {
-  text-align: center;
-}
-
-td:nth-child(1) {
-  text-align: center;
-}
-
-tr {
-  background-color: #e6cee0;
-}
-
-tr:nth-child(even){
-  background-color: #e6cee0;
-}
-
-.section__principal {
-  width: 100%;
-  border: 1px solid black;
-  padding: 20px 10px 10px 10px;
-  margin: 5px;
-}
-
-.form {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
-
-.form-item:nth-child(3){
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-column: 1/-1;
-  column-gap: 10px;
-}
-
-.form-item:nth-child(3) input {
-  grid-column: 1;
-}
-
-.form-item:nth-child(3)::after {
-  content: "";
+.formulario__fieldset__botaoLimpar{
+  border: 2px solid var(--cor-borda);
+  border-radius: 0px;
+  width: 450px;
+  height: 36px;
+  font-size: 16px;
   display: block;
-  width: 80%;
-  height: 2px;
-  background-color: #c06382;
-  position: relative;
-  grid-column: 1/-1;
-  margin: 0 auto;
-  top: -5px;
+  margin: 16px auto;
+  font-family: var(--fonte-texto);
+  font-weight: 400;
+  
 }
 
-.form-item:nth-child(4) {
-  grid-column: 1;
+.rodape{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    height: 10vh;
 }
 
-.form button {
-  grid-column: 1/-1;
+.rodape__texto{
+    font-family: var(--fonte-texto);
+    font-weight: 400;
+    font-size: 14px;
+}
+
+table{
+    text-align: center;
+    border-width: 2px;
+    border: #F1F6F9;
 }

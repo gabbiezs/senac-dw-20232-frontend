@@ -26,11 +26,18 @@
 
 /////////   Versão 2: para chamar diretamente do HTML /////////
 //O valor do cep digitado está no <input> com id "txtCep"
+
+function limpar(){
+    inputCidade.value = '';
+    inputUf.value = '';
+
+}
+
 async function buscarCEP(){
     limpar();
     //'document' é uma variável global que representa todo o HTML e seus elementos (a árvore DOM - Document Object Model)
-    var txtCep = document.getElementById('txtCep');
-    var cepInformado = txtCep.value;
+    var txtCep = document.getElementById('inputCep');
+    var cepInformado = inputCep.value;
 
     fetch(`https://viacep.com.br/ws/${cepInformado}/json/`)
     .then(resultado => resultado.json())
@@ -48,31 +55,19 @@ async function buscarCEP(){
 
 //Preencher os dados do endereço obtido na página HTML
 function preencherCamposComJSON(json){
-    //essa condição funciona em javascript, é o equivalente a 
-    //if(json.bairro != undefined && json.bairro != '')
-    if(json.bairro){ 
-        //Obter o componente diretamente pelo id funciona (não sabia)
-        txtBairro.value = json.bairro;
+    if(json.localidade){ 
+        inputCidade.value = json.localidade;
     }else{
-        txtBairro.disabled = false;
+        inputCidade.disabled = false;
     }
-
-    //Versão 2 (mais antiga): obter o componente navegando na árvore DOM
-    document.getElementById('txtUF').value = json.uf;
-    txtCidade.value = json.localidade;
-}
-//
-function limpar(){
-    divDadosEndereco.style = 'background-color: aqua';
-    txtBairro.value = '';
-    txtCidade.value = '';
-    txtUF.value = '';
-    txtBairro.disabled = true;
-
+    if(json.uf){ 
+        inputUf.value = json.uf;
+    }else{
+        inputUf.disabled = false;
+    }
 }
 
 function mostrarTelaErro(){
     limpar();
-    divDadosEndereco.style = 'background-color: red';
     alert('CEP informado não existe');
 }
