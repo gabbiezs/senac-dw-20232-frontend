@@ -24,13 +24,17 @@ export class ProdutoListagemComponent implements OnInit {
 
   buscarProdutos(){
     this.produtoService.listarTodos().subscribe(
-      resultado => {
-        this.produtos = resultado;
-      },
-      erro => {
-        console.log('Erro ao buscar produtos', erro);
-      }
+      // resultado => {
+      //   this.produtos = resultado;
+      // },
+      // erro => {
+      //   console.log('Erro ao buscar produtos', erro);
+      // }
     );
+  }
+
+  pesquisar(){
+
   }
 
   editar(id: number){

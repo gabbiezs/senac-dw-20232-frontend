@@ -2,16 +2,12 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-12">
-      <!-- https://getbootstrap.com/docs/4.0/components/card/ -->
       <div class="card">
         <div class="card-header bg-primary text-white">
           <h5>Filtros</h5>
         </div>
         <div class="card-body card-info">
-          <!-- FONTE: https://getbootstrap.com/docs/4.0/components/forms/ -->
           <form>
-            <!-- <pre>Seletor em JSON ("canteiro de obras - comentar/apagar"): {{seletor | json}}</pre> -->
-              <!-- TODO botar nome e nomeFabricante em uma linha única (cada item ocupando 6 espaços) -->
               <div class="form-group">
                 <label for="nome">Nome</label>
                 <input class="form-control" name="nome" [(ngModel)]="seletor.nome">
@@ -23,7 +19,7 @@
 
               <br>
               <div class="form-group">
-                <button type="submit"   class="form-control btn btn-primary" ngClick="pesquisar()">Pesquisar</button>
+                <button type="submit"  class="form-control btn btn-primary" (click)="pesquisar()">Pesquisar</button>
               </div>
           </form>
         </div>
@@ -38,3 +34,9 @@
           <h5>Lista de Produtos</h5>
         </div>
         <div class="card-body">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
