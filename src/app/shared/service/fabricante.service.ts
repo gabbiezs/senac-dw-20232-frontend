@@ -12,10 +12,7 @@ export class FabricanteService {
 
   constructor(private httpClient: HttpClient) { }
 
-  // Declarar os métodos da API REST
-  //TODO
-
   listarTodos(): Observable<Array<Fabricante>> {
-    return this.httpClient.get<Array<Fabricante>>(this.API);
+    return this.httpClient.get<Array<Fabricante>>(this.API  + '/todos');
   }
 }

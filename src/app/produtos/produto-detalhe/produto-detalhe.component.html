@@ -1,10 +1,12 @@
 <br>
 <div class="container-fluid">
-    <form>
+    <form class="was-validated" #ngForm="ngForm">
         <div class="row">
             <div class="form-group col-md-6">
                 <label for="nome">Nome</label>
-                <input class="form-control" name="nome" [(ngModel)]="produto.nome">
+                <input class="form-control" name="nome" [(ngModel)]="produto.nome" required>
+                <div class="valid-feedback">Válido.</div>
+                <div class="invalid-feedback">Informe um nome com no mínimo 3 caracteres</div>
             </div>
             <div class="form-group col-md-6">
                 <label for="nomeFabricante">Fabricante</label>
@@ -12,7 +14,7 @@
                         [ngModelOptions]="{standalone: true}"
                         aria-label="Selecione um fabricante"
                         [compareWith]="compareById"
-                        [(ngModel)]="produto.fabricanteDoProduto">
+                        [(ngModel)]="produto.fabricanteDoProduto" required>
                     <option *ngFor="let fabricante of fabricantes"
                         [ngValue]="fabricante">{{fabricante.nome}}</option>
                 </select>
@@ -21,8 +23,8 @@
         <div class="row">
             <div class="form-group col-md-6">
                 <label for="nome">Peso (Kg)</label>
-                <input class="form-control" type="number" name="peso"
-                       [(ngModel)]="produto.peso">
+                <input class="form-control" type="number" name="peso" min="0.1" step="0.1"
+                       [(ngModel)]="produto.peso" required>
             </div>
             <div class="form-group col-md-6">
                 <label for="valor">Valor</label>
@@ -32,22 +34,22 @@
                     </div>
                     <input type="number" class="form-control" name="valor"
                            placeholder="Valor de venda do produto"
-                           [(ngModel)]="produto.valor">
+                           [(ngModel)]="produto.valor" required>
                 </div>
             </div>
         </div>
 
         <div class="row">
             <div class="form-group col-md-6">
-                <<label for="dataCadastro">Data de cadastro</label>
+                <label for="dataCadastro">Data de Cadastro</label>
                 <input class="form-control" type="date" name="dataCadastro"
                        min="{{dataMinima}}"
                        max="{{dataMaxima}}"
-                       [(ngModel)]="produto.dataCadastro">
+                       [(ngModel)]="produto.dataCadastro" required>
             </div>
             <div class="form-group col-md-3">
                 <label>&nbsp;</label> <!-- Força um label vazio -->
-                <button type="submit" class="form-control btn btn-primary" (click)="salvar()">Salvar</button>
+                <button type="submit" class="form-control btn btn-primary" (click)="salvar(ngForm)">Salvar</button>
             </div>
             <div class="form-group col-md-3">
                 <label>&nbsp;</label>
